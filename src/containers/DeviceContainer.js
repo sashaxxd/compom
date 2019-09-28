@@ -5,6 +5,7 @@ import {Element ,scroller} from 'react-scroll'
 import ModelContainer from "./ModelContainer";
 import BreakingContainer from "./BreakingContainer";
 import TableBreakingContainer from "./TableBreakingContainer";
+import SideNavbar from "../components/SideNavbar";
 
 
 
@@ -17,6 +18,8 @@ export default class DeviceContainer  extends Component {
         manufacturerId: 0,
         modelId: 0,
         breakingId: 0,
+        activeLink: null,
+
         device: [
             {
                 id: 1,
@@ -538,7 +541,8 @@ export default class DeviceContainer  extends Component {
             starts: false,
             deviceId,
             manufacturerId: 0,
-            modelId: 0
+            modelId: 0,
+            activeLink: null,
         })
         console.log('Выбран девайс' + deviceId)
         //https://www.npmjs.com/package/react-scroll cкроллинг
@@ -555,8 +559,10 @@ export default class DeviceContainer  extends Component {
 
     onManufacturerClickHandler = (manufacturerId) => {
         console.log('кликнули по производителю c идентификатором: ' + manufacturerId)
+
         const  mId = manufacturerId - 1;
         this.setState({
+            activeLink: manufacturerId,
             //Результаты
             starts: false,
             manufacturerId: mId,
@@ -651,6 +657,7 @@ export default class DeviceContainer  extends Component {
 
             <Element name="ManufacturerContainer">
                        <ManufacturerContainer
+                           activeLink={this.state.activeLink}
                            manufacturerLists = {this.state.device[this.state.deviceId].Manufacturer}
                            onManufacturerClick={this.onManufacturerClickHandler}
                        />

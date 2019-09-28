@@ -1,5 +1,5 @@
 import React from 'react'
-import ManufacturerList from "../components/ManufacturerList";
+import ManufacturerList from "../components/ManufacturerList/ManufacturerList";
 
 const ManufacturerContainer = props =>(
         <div>
@@ -27,6 +27,7 @@ const ManufacturerContainer = props =>(
 
 
                             <ManufacturerList
+                                activeLink={props.activeLink}
                                 manufacturerLists = {props.manufacturerLists}
                                 onManufacturerClick={props.onManufacturerClick}
 
