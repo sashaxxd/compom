@@ -552,11 +552,9 @@ export default class DeviceContainer  extends Component {
 
     }
 
-    onManufacturerClickHandler = (manufacturerId, manufacturerName) => {
+    onManufacturerClickHandler = (manufacturerId) => {
         console.log('кликнули по производителю c идентификатором: ' + manufacturerId)
-        console.log('и именем: ' + manufacturerName)
         const  mId = manufacturerId - 1;
-        const  mN = manufacturerName;
         this.setState({
             //Результаты
             starts: false,

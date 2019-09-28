@@ -4,7 +4,7 @@ const ManufacturerList = props =>(
     <div>
         {props.manufacturerLists.map((list, index) => {
                 return(
-                    <div id="site_manufacturer_single" key={index} onClick={() => props.onManufacturerClick(list.id, list.name)}>
+                    <div id="site_manufacturer_single" key={index} onClick={() => props.onManufacturerClick(list.id)}>
                         <div id="manufacturer_single">
                             <div className="row">
                                 <div className="col-1">
