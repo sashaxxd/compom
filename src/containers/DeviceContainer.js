@@ -16,6 +16,7 @@ export default class DeviceContainer  extends Component {
         deviceId: 0,
         manufacturerId: 0,
         modelId: 0,
+        breakingId: 0,
         device: [
             {
                 id: 1,
@@ -26,19 +27,19 @@ export default class DeviceContainer  extends Component {
                             { id: 1, name: 'iPhone 4',
                                 braking: [
                                     { id: 1, name: 'iPhone 4 Разбит дисплей',  subtypeBraking: [
-                                            { id: 1, name: 'Замена АКБ', price: '4 руб.', workingHours: '12 часов'},
-                                            { id: 1, name: 'Замена АКБ 2', price: '23 руб.', workingHours: '23 часов'},
-                                            { id: 1, name: 'Замена АКБ 3', price: '53 руб.', workingHours: '11 часов'},
+                                            { id: 1, name: 'iPhone 4 Замена АКБ', price: '4 руб.', workingHours: '12 часов'},
+                                            { id: 1, name: 'iPhone 4 Замена АКБ 2', price: '23 руб.', workingHours: '23 часов'},
+                                            { id: 1, name: 'iPhone 4 Замена АКБ 3', price: '53 руб.', workingHours: '11 часов'},
                                         ] },
                                     { id: 2, name: 'iPhone 4 Разбита камера',  subtypeBraking: [
-                                            { id: 1, name: 'Замена АКБ', price: '4 руб.', workingHours: '12 часов'},
-                                            { id: 1, name: 'Замена АКБ 2', price: '23 руб.', workingHours: '23 часов'},
-                                            { id: 1, name: 'Замена АКБ 3', price: '53 руб.', workingHours: '11 часов'},
+                                            { id: 1, name: 'iPhone 4 Разбита камера', price: '4 руб.', workingHours: '12 часов'},
+                                            { id: 1, name: 'iPhone 4 Разбита камера 2', price: '23 руб.', workingHours: '23 часов'},
+                                            { id: 1, name: 'iPhone 4 Разбита камера 3', price: '53 руб.', workingHours: '11 часов'},
                                         ]  },
                                     { id: 3, name: 'iPhone 4 Просто глючит' ,  subtypeBraking: [
-                                            { id: 1, name: 'Замена АКБ', price: '4 руб.', workingHours: '12 часов'},
-                                            { id: 1, name: 'Замена АКБ 2', price: '23 руб.', workingHours: '23 часов'},
-                                            { id: 1, name: 'Замена АКБ 3', price: '53 руб.', workingHours: '11 часов'},
+                                            { id: 1, name: 'Просто глючит', price: '4 руб.', workingHours: '12 часов'},
+                                            { id: 1, name: 'Просто глючит АКБ 2', price: '23 руб.', workingHours: '23 часов'},
+                                            { id: 1, name: 'Просто глючит 3', price: '53 руб.', workingHours: '11 часов'},
                                         ] },
                                 ]
                             },
@@ -50,14 +51,14 @@ export default class DeviceContainer  extends Component {
                                             { id: 1, name: 'Замена АКБ 3', price: '53 руб.', workingHours: '11 часов'},
                                         ]  },
                                     { id: 2, name: 'iPhone 5 Разбита камера' ,  subtypeBraking: [
-                                            { id: 1, name: 'Замена АКБ', price: '4 руб.', workingHours: '12 часов'},
-                                            { id: 1, name: 'Замена АКБ 2', price: '23 руб.', workingHours: '23 часов'},
-                                            { id: 1, name: 'Замена АКБ 3', price: '53 руб.', workingHours: '11 часов'},
+                                            { id: 1, name: 'Разбита камера', price: '4 руб.', workingHours: '12 часов'},
+                                            { id: 1, name: 'Разбита камера 2', price: '23 руб.', workingHours: '23 часов'},
+                                            { id: 1, name: 'Разбита камера3', price: '53 руб.', workingHours: '11 часов'},
                                         ] },
                                     { id: 3, name: 'iPhone 5 Просто глючит' ,  subtypeBraking: [
-                                            { id: 1, name: 'Замена АКБ', price: '4 руб.', workingHours: '12 часов'},
-                                            { id: 1, name: 'Замена АКБ 2', price: '23 руб.', workingHours: '23 часов'},
-                                            { id: 1, name: 'Замена АКБ 3', price: '53 руб.', workingHours: '11 часов'},
+                                            { id: 1, name: 'Просто глючит АКБ', price: '4 руб.', workingHours: '12 часов'},
+                                            { id: 1, name: 'Просто глючитАКБ 2', price: '23 руб.', workingHours: '23 часов'},
+                                            { id: 1, name: 'Просто глючит АКБ 3', price: '53 руб.', workingHours: '11 часов'},
                                         ] },
                                 ] },
                             { id: 3, name: 'iPhone 6',
@@ -591,6 +592,27 @@ export default class DeviceContainer  extends Component {
         })
     }
 
+    onBreakingClickHandler = (breakingId, event) => {
+        event.preventDefault()
+        console.log('кликнули по виду поломки c идентификатором: ' + breakingId)
+        const  brId = breakingId -1;
+        this.setState({
+            //Результаты
+            starts: false,
+            breakingId: brId,
+        })
+
+
+
+        scroller.scrollTo('TableBreakingContainer', {
+            duration: 600,
+            delay: 0,
+            smooth: true,
+            offset: -50,
+
+        })
+    }
+
 
     render() {
         return (
@@ -647,13 +669,17 @@ export default class DeviceContainer  extends Component {
             <BreakingContainer
                 breakingLists = {this.state.device[this.state.deviceId].Manufacturer[this.state.manufacturerId]
                     .model[this.state.modelId].braking}
-
+                modelName={this.state.device[this.state.deviceId].Manufacturer[this.state.manufacturerId].model[this.state.modelId].name}
+                onBreakingClick={this.onBreakingClickHandler}
             />
             </Element>
 
             <Element name="TableBreakingContainer">
             <TableBreakingContainer
-
+                breacingname={this.state.device[this.state.deviceId].Manufacturer[this.state.manufacturerId].model[this.state.modelId].braking[this.state.breakingId].name}
+                modelName={this.state.device[this.state.deviceId].Manufacturer[this.state.manufacturerId].model[this.state.modelId].name}
+                tableBreakingLists = {this.state.device[this.state.deviceId].Manufacturer[this.state.manufacturerId]
+                    .model[this.state.modelId].braking[this.state.breakingId].subtypeBraking}
             />
             </Element>
 

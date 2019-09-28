@@ -1,7 +1,7 @@
 import React from 'react'
 
 const ManufacturerList = props =>(
-    <div>
+    <>
         {props.manufacturerLists.map((list, index) => {
                 return(
                     <div id="site_manufacturer_single" key={index} onClick={() => props.onManufacturerClick(list.id)}>
@@ -19,7 +19,7 @@ const ManufacturerList = props =>(
                 )
             }
         )}
-    </div>
+    </>
 )
 
 export default ManufacturerList

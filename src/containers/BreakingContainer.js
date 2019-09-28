@@ -14,6 +14,9 @@ const BreakingContainer = props =>(
                         <div id="site_breakingl_container_line_s">
                             <img src={ require('../images/img0004.png') } id="breakingl_container_line_s" alt=""/>
                         </div>
+                        <div id="site_model_name_in_title">
+                            <span id="site_uid16" style={{color:'#000'}}>{props.modelName}</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -27,7 +30,7 @@ const BreakingContainer = props =>(
 
                               <BreakingList
                                   breakingLists = {props.breakingLists}
-                                  onModelClick={props.onModelClick}
+                                  onBreakingClick={props.onBreakingClick}
                               />
 
                             </ul>

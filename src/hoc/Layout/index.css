@@ -2036,13 +2036,13 @@ body {
    list-style-type: none;
    margin: 0;
    padding: 0;
-   width: 193px;
+   width: 493px;
 }
 #site_CssMenu4 li {
    float: left;
    margin: 0;
    padding: 0px 0px 4px 0px;
-   width: 193px;
+   width: 493px;
 }
 #site_CssMenu4 a {
    background-color: #F5F5F5;
@@ -2061,7 +2061,7 @@ body {
    text-align: center;
    text-decoration: none;
    vertical-align: middle;
-   width: 183px;
+   width: 483px;
 }
 #site_CssMenu4 li:hover a,
 #site_CssMenu4 a:hover {
@@ -3424,7 +3424,7 @@ body {
 #site_CssMenu4 {
    display: inline-block;
    height: 128px;
-   width: 193px;
+   width: 493px;
    z-index: 55;
 }
 #site_uid17 {
